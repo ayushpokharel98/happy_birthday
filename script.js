@@ -1,3 +1,7 @@
+function bgm(){
+    const bgm = document.getElementById("backgroundMusic");
+    bgm.play()
+}
 function unwrapGift() {
     document.getElementById('giftContent').style.display = 'block';
     dropMoreConfetti();
@@ -20,7 +24,7 @@ function ConfettiParticle() {
     this.dy = Math.sin(this.angle) * this.speed;
     this.opacity = Math.random() * 0.5 + 0.5;
 
-    this.update = function() {
+    this.update = function () {
         this.x += this.dx;
         this.y += this.dy;
 
@@ -32,7 +36,7 @@ function ConfettiParticle() {
         }
     };
 
-    this.draw = function() {
+    this.draw = function () {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
@@ -81,6 +85,7 @@ const wishes = [
 let currentWishIndex = 0;
 
 function revealWish() {
+    bgm();
     const wishList = document.getElementById('wishList');
 
     if (currentWishIndex < wishes.length) {
@@ -90,7 +95,7 @@ function revealWish() {
         wishList.appendChild(newWish);
         currentWishIndex++;
 
-        if (wishText === "Malai reels pathauna kailei banda garxeu🤨?" || wishText ==="Malai birsinxeu🤨?") {
+        if (wishText === "Malai reels pathauna kailei banda garxeu🤨?" || wishText === "Malai birsinxeu🤨?") {
             addButtonsReel(newWish);
         }
         if (wishText === "GCES ma naam niskesi mero project haru gardinxeu🤨?") {
@@ -107,16 +112,16 @@ function addButtonsReel(wishElement) {
     const yesButton = document.createElement('button');
     const noButton = document.createElement('button');
     yesButton.textContent = 'Yes';
-    noButton.onclick = function() {
+    noButton.onclick = function () {
         alert("Hoo good goooddd! 😌");
     };
 
     noButton.textContent = 'No';
 
-    yesButton.onclick = function(){
-        if (yesButton.textContent==="No"){
+    yesButton.onclick = function () {
+        if (yesButton.textContent === "No") {
             alert("Hoo good goooddd! 😌")
-        }else{
+        } else {
             yesButton.textContent = 'No';
         }
     }
@@ -129,16 +134,16 @@ function addButtons(wishElement) {
     const yesButton = document.createElement('button');
     const noButton = document.createElement('button');
     yesButton.textContent = 'Yes';
-    yesButton.onclick = function() {
+    yesButton.onclick = function () {
         alert("Hoo good goooddd! 😌");
     };
 
     noButton.textContent = 'No';
 
-    noButton.onclick = function(){
-        if (noButton.textContent==="Yes"){
+    noButton.onclick = function () {
+        if (noButton.textContent === "Yes") {
             alert("Hoo good goooddd! 😌")
-        }else{
+        } else {
             noButton.textContent = 'Yes';
         }
     }
